@@ -1,5 +1,5 @@
 
-Pipeline{
+pipeline{
     agent any
     environment{
         DOCKER_IMAGE_NAME = 'tejachittamuri/gitopscicd'
