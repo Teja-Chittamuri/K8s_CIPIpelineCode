@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        DOCKER_IMAGE_NAME = 'tejachittamuri/cicd'
+        DOCKER_IMAGE_NAME = 'tejachittamuri/gitopscicd'
         DOCKER_REGISTRY_CREDENTIALS_ID = 'dockerlogin'
     }
     stages {
