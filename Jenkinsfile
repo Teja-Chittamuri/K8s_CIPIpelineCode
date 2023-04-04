@@ -17,10 +17,10 @@ pipeline{
         }
         stage('Trigger ManifestUpdate') {
             steps{
-                script{
+                
                 echo "triggering updatemanifestjob"
                 build job: 'update_k8manifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
-                }
+                
         }
         }
     }
