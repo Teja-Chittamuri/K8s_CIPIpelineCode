@@ -1,28 +1,32 @@
+node {
+    def app
 
-pipeline{
-    agent any
-    environment{
-        DOCKER_IMAGE_NAME = 'tejachittamuri/ultimatecicd:{$BUILD_NUMBER}'
-        DOCKER_REGISTRY_CREDENTIALS_ID = 'dockerhub'
+    stage('Clone repository') {
+      
+
+        checkout scm
     }
-    stages {
-         stage('Fetch the code')
-    {
-        steps{
-            git branch:'master' , url: 'https://github.com/Teja-Chittamuri/K8s_CIPIpelineCode.git'
+
+    stage('Build image') {
+  
+       app = docker.build("tejachittamuri/ultimatecicd")
+    }
+
+    stage('Test image') {
+  
+
+        app.inside {
+            sh 'echo "Tests passed"'
         }
     }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', DOCKER_REGISTRY_CREDENTIALS_ID) {
-                        def dockerImage = docker.build(DOCKER_IMAGE_NAME)
-                        dockerImage.push("${env.BUILD_NUMBER}")
-                    }
-                }
-            }
+
+    stage('Push image') {
+        
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+            app.push("${env.BUILD_NUMBER}")
         }
-       stage('Update Deployment File') {
+    }
+        stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "K8s_CDPIpelineCode"
             GIT_USER_NAME = "Teja-Chittamuri"
@@ -41,6 +45,5 @@ pipeline{
             }
     }
        }
-    }
 }
     
