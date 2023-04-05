@@ -61,6 +61,8 @@ GitOps CICD Workflow
   
 3. Once the New image version had been pushed to the Dockerub then another job gets triggered which updated the deployment manifest file which is stored in another Git repo.
 4. Since we have already configured argo cd on to our K8s Cluster, once the deployment manifest is updated then argocd will automatically sync the configuration that is provided in the manifest file and update the pods.
+![image](https://user-images.githubusercontent.com/111578142/230019839-6cc093bf-6461-46f6-b85c-43fa5141dbfe.png)
+
 
 Happy Learning 😊😊
 
