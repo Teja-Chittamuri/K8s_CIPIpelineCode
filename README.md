@@ -65,6 +65,9 @@ GitOps CICD Workflow
 
 ![image](https://user-images.githubusercontent.com/111578142/230021111-3f1596fc-d9fb-49dc-b5d1-b40f54494ec7.png)
 ![image](https://user-images.githubusercontent.com/111578142/230021209-783f6156-ca9f-4fbd-9623-b5c1d67fab33.png)
+![image](https://user-images.githubusercontent.com/111578142/230026037-61a8ba48-a4ee-4f11-b82f-d6c4c366d80c.png)
+![image](https://user-images.githubusercontent.com/111578142/230026115-6758d165-cc60-4344-a9aa-8bd3440d9185.png)
+
 
 ![image](https://user-images.githubusercontent.com/111578142/230019839-6cc093bf-6461-46f6-b85c-43fa5141dbfe.png)
 
