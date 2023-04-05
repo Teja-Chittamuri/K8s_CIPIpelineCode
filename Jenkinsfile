@@ -3,7 +3,7 @@ pipeline{
     agent any
     environment{
         DOCKER_IMAGE_NAME = 'tejachittamuri/ultimatecicd:{$BUILD_NUMBER}'
-        DOCKER_REGISTRY_CREDENTIALS_ID = 'dockerlogin'
+        DOCKER_REGISTRY_CREDENTIALS_ID = 'dockerhub'
     }
     stages {
          stage('Fetch the code')
