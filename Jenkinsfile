@@ -2,7 +2,7 @@
 pipeline{
     agent any
     environment{
-        DOCKER_IMAGE_NAME = 'tejachittamuri/gitopscicd'
+        DOCKER_IMAGE_NAME = 'tejachittamuri/ultimatecicd:{$BUILD_NUMBER}'
         DOCKER_REGISTRY_CREDENTIALS_ID = 'dockerlogin'
     }
     stages {
@@ -30,7 +30,7 @@ pipeline{
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yaml
                     git add .
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
                 '''
             }
     }
