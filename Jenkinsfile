@@ -6,6 +6,12 @@ pipeline{
         DOCKER_REGISTRY_CREDENTIALS_ID = 'dockerlogin'
     }
     stages {
+         stage('Fetch the code')
+    {
+        steps{
+            git branch:'master' , url: 'https://github.com/Teja-Chittamuri/K8s_CIPIpelineCode.git'
+        }
+    }
         stage('Build Docker Image') {
             steps {
                 script {
